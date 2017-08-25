@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<title>我的点赞</title>
+		<script src="https://cdn.bootcss.com/systemjs/0.20.18/system.js"></script>
+		<!-- <script type="text/javascript" src='test.js'></script> -->
+		<style>
+			.thumbsup-wrap {
+				position: relative;
+				width: 300px;
+				margin: 0 auto;
+				height: 300px;
+				background-color: green
+			}
+
+			.arm {
+				position: absolute;
+				top:50%;
+				margin-top: -25px;
+				left: 50%;
+				margin-left: -50px;
+				height: 50px;
+				width: 50px;
+				background-color: rgb(242, 197, 175);
+			}
+
+			.palm {
+				position: absolute;
+				height: 80px;
+				width: 40px;
+				background-color: rgb(242, 197, 175);
+				top:-20px;
+				right: -40px;
+				border-radius: 8px;
+				z-index: 5;
+			}
+			.finger {
+				position: absolute;
+				height: 20px;
+				width: 50px;
+				background-color: rgb(242, 197, 175);
+				border-radius: 8px;
+				right: -30px;
+				z-index: 6;
+				background: linear-gradient(to right, rgb(242, 197, 175) , rgb(242, 201, 181), rgb(244, 208, 189), rgb(247, 221, 208));
+			}
+
+			.finger-one {
+				top: -20px;
+    		right: -20px;
+				-moz-transform:rotate(-45deg);
+		 		-webkit-transform:rotate(-45deg);
+			}
+
+			.finger-two {
+				top:0px
+			}
+			.finger-three {
+				top: 20px;
+			}
+			.finger-four {
+				top: 40px;
+			}
+
+			.finger-five {
+				top: 60px;
+			}
+
+			.add-prise {
+				position: absolute;
+				color:#ff4255;
+				right:-30;
+				top:-40;
+				opacity: 0;
+				font-size:14px;
+				-webkit-animation:lovestar 1.2s 0s 1 ease normal none ;
+				-moz-animation:lovestar 1.2s 0s 1 ease normal none ;
+				animation:lovestar 1.2s 0s 1 ease normal none ;
+			}
+
+			@keyframes lovestar{
+        0%{
+            opacity:0;
+            transform:translate3d(0,-10px,0);
+        } 50%{
+              opacity:1;
+              transform:translate3d(0,-30px,0) scale(2,2);
+          }
+        100%{
+            opacity:0;
+            transform:translate3d(-15px,0,0) scale(.4,.4) rotate(180deg);
+        }
+    }
+		</style>
+	</head>
+	<body>
+		<div class="thumbsup-wrap" id='thumbsup'>
+			<div class="arm">
+				<div class="palm"  id="test">
+					<div class="finger finger-one">
+					</div>
+					<div class="finger finger-two">
+					</div>
+					<div class="finger finger-three">
+					</div>
+					<div class="finger finger-four">
+					</div>
+					<div class="finger finger-five">
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// console.log(SystemJS)
+		// var thumbs = new ThumbsUp(1, 'test');
+		// function praise (envent) {
+		// 	console.log('--->')
+		// 	thumbs.createAnimaNode()
+		// 	thumbs.delayCommit()
+		// }
+		SystemJS.import('./test.js').then(function (m) {
+			var t = new m.default(1, 'test')
+			document.getElementById("test").onclick=function(){
+				t.createAnimaNode()
+			};
+		}
+	</script>
+</html>
